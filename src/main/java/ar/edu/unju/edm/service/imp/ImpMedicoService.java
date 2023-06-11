@@ -48,6 +48,7 @@ public class ImpMedicoService implements MedicoService{
 		// TODO Auto-generated method stub
 		Optional<Medico> aux = Optional.of(new Medico()); 
 		aux= medicoRepository.findById(matricula);
+		
 		return aux.get();
 	}
 
