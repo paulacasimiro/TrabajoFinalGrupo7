@@ -1,17 +1,14 @@
 package ar.edu.unju.edm.model;
 
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Component
 @Entity
 public class Medico {
 	@Id 
-	@GeneratedValue (strategy = GenerationType.AUTO)
+
 	private Integer matricula;
 	private String nombre;
 	private String apellido;
