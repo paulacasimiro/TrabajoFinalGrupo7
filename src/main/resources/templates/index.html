@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Grupo7</title>
+  <!-- <link rel="stylesheet" href="./footandheadstyle.css">
+ <link rel="stylesheet" th:href="@{./style.css}"> -->
 
   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
   <style>
@@ -29,7 +31,9 @@
     }
 
     body {
-      color: rgb(0, 0, 0);
+    	color: white;
+    	background: black;
+    	font-family: 'georgia';
     }
     
     .display-1 {
@@ -55,27 +59,37 @@
   </style>
 </head>
 <body>
-  <img class="heartbeat-img" src="../img/me-gusta.png" alt="../static/img/me-gusta.png">
-  </div>
+<!-- <div th:replace= "~{footandhead :: header}"></div> -->
+  <img class="heartbeat-img" src="./me-gusta.png" alt="./me-gusta.png">
 
+  <div class="col-3">
+		
+  </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <h1 class="display-1">CLINICA</h1>
+        <h1 class="display-1">MEDIC</h1>
         <footer>
         </footer>
       </div>
       <div class="col-6"></div>
     </div>
-  </div>
+  
 
   <div class="btn-container">
-    <a href="#" class="btn btn-danger">Especialidad</a>
-    <a href="#" class="btn btn-danger">Medico</a>
-    <a href="#" class="btn btn-danger">Paciente</a>
+    <a class="btn btn-outline-light" th:href="@{/especialidad}">Especialidad</a>
+    <a class="btn btn-outline-light" th:href="@{/medico}">Medico</a>
+    <a class="btn btn-outline-light" th:href="@{/registrodepaciente}">Paciente</a>
   </div>
+  </div>
+  <div class="col-3">
+  
+  </div>
+  
+<!-- <div th:replace="~{footandhead :: footer}"></div> -->
 
   <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}" type="text/javascript"></script>
-  
+
 </body>
 </html>
