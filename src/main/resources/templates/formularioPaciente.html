@@ -22,7 +22,12 @@ body{
          
        </div>
          <div class="col-6">
-				  <form th:object="${paciente}" th:action="@{/registrarPaciente}" method="post">  
+				  <form th:object="${paciente}" th:action="${band}?@{/modificarPaciente}:@{/guardarPaciente}" method="post"> 
+		
+		<input type="hidden" class="form-control" th:if="${band}" th:field="*{codigo}">
+		<input type="hidden" class="form-control" th:if="${band}" th:field="*{estado}">
+		
+				   
 					  <div class="form-group mb-3"> 
 				        <label class="form-label">Nombre y Apellido:</label><br>
                         <input class="form-control"  type="text" th:field="*{nombreyapellido}"></input> <br> 
@@ -32,14 +37,14 @@ body{
                         <input class="form-control" type="email" th:field="*{gmail}" ></input><br> 
                         <label class="form-label" >Password</label><br>
                         <input class="form-control"  type="password" th:field="*{password}" ></input> <br> 
-						<label class="form-label">Codigo:</label><br>   
-						<input class="form-control" type="number" th:field="*{codigo}"></input><br>
+						<label class="form-label" th:if="${band == false}">Codigo:</label><br>   
+						<input class="form-control" type="number" th:field="*{codigo}" th:if="${band == false}"></input><br>
 		 				<label class="form-label">DNI:</label><br> 
 						<input class="form-control" type="text" th:field="*{DNI}"></input><br>
 						<label class="form-label">Direccion:</label><br> 
 						<input class="form-control" type="text" th:field="*{direccion}"></input><br>
-						<input class="btn btn-info" type="submit" value="REGISTRAR">
-						
+				<input class="btn btn-info" type="submit"value="REGISTRAR">
+						 
 					</div>	
 						
 				</form>
