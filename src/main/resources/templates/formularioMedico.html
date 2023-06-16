@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>REGISTRAR MEDICO</title>
-
+<link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" th:href="@{./styleCargarMedico.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
@@ -17,9 +17,10 @@ body{
 </style>
 </head>
 <body>
-<div th:replace= "~{layout/layout :: header}"></div>
+
 
 <div class="container">
+<div th:replace="~{footandhead :: header}"></div>
 	<div class="row">	
 		<div class="col-3">
 		
@@ -38,17 +39,20 @@ body{
 		
 				<label class="form-label" th:if="${band == false}">Matricula:</label><br> 
 				<input class="form-control" type="number" th:field="*{matricula}" th:if="${band == false}"></input><br>
-				<label class="form-label">Nombre:</label><br> 
-				<input class="form-control" type="text" th:field="*{nombre}"></input><br>
-				<label class="form-label">Apellido:</label><br> 
-				<input class="form-control" type="text" th:field="*{apellido}"></input><br>
-				<label class="form-label">DNI:</label><br> 
+	
+			    <label class="form-label">Nombre y Apellido:</label><br> 
+				<input class="form-control" type="text" th:field="*{nombreApellido}"></input><br>
+				<label class="form-label">DNI:</label><br>
 				<input class="form-control" type="number" th:field="*{dni}"></input><br>
 				<label class="form-label">Direccion:</label><br> 
 				<input class="form-control" type="text" th:field="*{direccion}"></input><br>
 						
 				<label class="form-label">Numero de Telefono:</label><br> 
 				<input class="form-control" type="number" th:field="*{telefono}"></input><br>
+				<label class="form-label">Especialidad:</label><br> 
+				<select class="form-control" th:field="*{especialidad.codigo}">
+				<option th:each="e:${especialidad}" th:value="${e.codigo}" th:text="${e.nombre}"></option>
+				</select><br>
 						
 				
 				<input class="btn btn-info" type="submit" href="/guardarMedico"value="REGISTRAR">
@@ -61,6 +65,7 @@ body{
 	</div>
 
 	</div>
+	<div th:replace="~{footandhead :: footer}"></div>
 
 </div>
 	

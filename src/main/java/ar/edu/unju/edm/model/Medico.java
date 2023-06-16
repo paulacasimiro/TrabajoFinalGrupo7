@@ -2,31 +2,37 @@ package ar.edu.unju.edm.model;
 
 import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Component
 @Entity
 public class Medico {
 	@Id 
-
+	@GeneratedValue (strategy=GenerationType.AUTO)
 	private Integer matricula;
-	private String nombre;
-	private String apellido;
+	private String nombreApellido; 
 	private Integer dni;
 	private String direccion;
 	private Integer telefono;
 	private Boolean estado;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="codigo")
+	Especialidad especialidad;
 	public Medico() {
 
 	}
 
-	public Medico(Integer matricula, String nombre, String apellido, Integer dni, String direccion, Integer telefono,
+	public Medico(Integer matricula, String nombreApellido, Integer dni, String direccion, Integer telefono,
 			Boolean estado) {
 		super();
 		this.matricula = matricula;
-		this.nombre = nombre;
-		this.apellido = apellido;
+		this.nombreApellido = nombreApellido;
 		this.dni = dni;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -41,20 +47,12 @@ public class Medico {
 		this.matricula = matricula;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNombreApellido() {
+		return nombreApellido;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setNombreApellido(String nombreApellido) {
+		this.nombreApellido = nombreApellido;
 	}
 
 	public Integer getDni() {
@@ -88,6 +86,16 @@ public class Medico {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
+	}
+
+	
 	
 	
 }
