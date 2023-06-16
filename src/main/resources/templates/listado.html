@@ -7,6 +7,8 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous"> -->
 <title>MOSTRAR ESPECIALIDADES</title>
+<link rel="stylesheet" href="./styleCargarMedico.css">
+
 <link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" th:href="@{./style.css}">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
@@ -25,7 +27,8 @@ font-family: 'Monaco';
 </style>
 </head>
 <body>
-	<div th:replace= "~{footandhead :: header}"></div>
+  
+  <div th:replace= "~{footandhead :: header}"></div>
 
 	<div class="table-responsive">
 	<div class="col">
@@ -52,13 +55,12 @@ font-family: 'Monaco';
 			
 					
 					<td class="black">
-	
 					<a th:href="@{'/editarEspecialidad/'+${esp.codigo}}">
-					<span class="material-symbols-outlined">edit</span>
-					</a>
-					<a class="link-eliminar" href="#" th:href="@{'/eliminarEspecialidad/'+${esp.codigo}}">
-					<span class="material-symbols-outlined">delete</span>
-					</a>
+			<span class="material-symbols-outlined">edit</span>
+			</a>
+			<a th:href="@{'/eliminarEspecialidad/'+${esp.codigo}}">
+			<span class="material-symbols-outlined">delete</span>
+			</a>
 					
 					</td>
 				</tr>
@@ -67,8 +69,9 @@ font-family: 'Monaco';
 		</table>
 		<a class="btn btn-info" href="/especialidad">Registrar Otra Especialidad</a>
 
-    <div th:replace="~{footandhead :: footer}"></div>
+    
 	</div>
+	<div th:replace="~{footandhead :: footer}"></div>
 	
 	
 	

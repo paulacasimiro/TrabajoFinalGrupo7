@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import ar.edu.unju.edm.model.*;
+import ar.edu.unju.edm.service.EspecialidadService;
 import ar.edu.unju.edm.service.MedicoService;
 
 
@@ -20,7 +21,8 @@ public class MedicoController {
 	
 	@Autowired 
 	MedicoService medicoService; 
-	
+	@Autowired
+	EspecialidadService especialidadService; 
 	@Autowired
 	Medico unMedico;
 	
@@ -28,6 +30,7 @@ public class MedicoController {
 	public ModelAndView cargarMedico(){
 		ModelAndView modelAndView = new ModelAndView("formularioMedico");
 		modelAndView.addObject("medico", unMedico);
+		modelAndView.addObject ("especialidad", especialidadService.listarTodasEspecialidades());
 		modelAndView.addObject("band", false);
 				
 		return modelAndView;
@@ -48,6 +51,7 @@ public class MedicoController {
 		
 		try {
 			modelAndView.addObject("medico", medicoService.listarUnMedico(matricula));
+			modelAndView.addObject ("especialidad", especialidadService.listarTodasEspecialidades());
 		}catch(Exception e) {
 			modelAndView.addObject("modificarMedicoErrorMessage", e.getMessage());
 		}
