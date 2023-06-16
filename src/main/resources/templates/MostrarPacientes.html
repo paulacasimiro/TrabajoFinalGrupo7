@@ -2,14 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="./footandheadstyle.css">
+<link rel="stylesheet" th:href="@{./style.css}">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
- 
+ <style>
+ body{
+	background: black;
+}
+ </style>
 <title>Mostrar Pacientes</title>
 </head>
 <body>
 
-<div th:replace= "~{layout/layout :: header}"></div>
+<div th:replace= "~{footandhead :: header}"></div>
 
 <div class="col">
 	<h4>Pacientes Registrados</h4>
@@ -29,7 +37,7 @@
               </tr> 
 		</thead>
 		<tbody class="table-group-divider">
-			<tr th:each="paciente:${listado}" class="text-center">
+			<tr th:each="paciente:${listadoPaciente}" class="text-center">
 			 <td class="black" th:text="${paciente.codigo}"></td>
               <td class="black" th:text="${paciente.nombreyapellido}"></td>
                 <td class="black" th:text="${paciente.DNI}"></td>
@@ -39,18 +47,20 @@
       			<td class="black" th:text="${paciente.gmail}"></td>
 			
 			<td class="black">
-			
-			<a href="#" class="btn btn-outline-secondary"  th:href="@{'/registrodepaciente?codigo='+${paciente.codigo}}">MODIFICAR</a>
-			<a href="#" class="btn btn-outline-secondary"  th:href="@{'/eliminarPaciente/'+${paciente.codigo}}">EIMINAR</a>
-		
-			
+			<a th:href="@{'/editarPaciente/'+${paciente.codigo}}">
+			<span class="material-symbols-outlined">edit</span>
+			</a>
+			<a th:href="@{'/eliminarPaciente/'+${paciente.codigo}}">
+			<span class="material-symbols-outlined">delete</span>
+			</a>
+			   
 			</td>
 			</tr>
 		</tbody>
 	</table>
-	<a class="btn btn-success" href="/registrodepaciente">Registrar otro Paciente</a>
+	<a class="btn btn-info" href="/paciente">Registrar otro Paciente</a>
 
-
+	<div th:replace="~{footandhead :: footer}"></div>
 
 </body>
 </html>
