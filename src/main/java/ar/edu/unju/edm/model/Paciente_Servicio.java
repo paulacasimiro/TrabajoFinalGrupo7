@@ -30,8 +30,8 @@ public class Paciente_Servicio {
 	private Date fechadefinalizacion;
 	
 	public Paciente_Servicio() {
-		//this.paciente= new Paciente();
-		//this.servicio= new Servicio();  
+		this.paciente= new Paciente();
+		this.servicio= new Servicio();  
 	}
 
 	/*public Paciente_Servicio(Integer idReservadeServicio, Paciente paciente, Servicio servicio, Date fechadeinicio,

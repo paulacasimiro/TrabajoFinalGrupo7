@@ -1,7 +1,6 @@
 package ar.edu.unju.edm.service.imp;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class Imp_PacienteServicio_Service  implements PacienteServicio_Service{
 	@Override
 	public void registrarPaciente_Servicio(Paciente_Servicio paci_serv) {
 		// TODO Auto-generated method stub
-		
+		psr.save(paci_serv); 
 	}
 	
 	@Override

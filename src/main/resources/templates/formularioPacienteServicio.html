@@ -34,14 +34,14 @@ body{
 				      
                         <label  class="form-label">Usuario:</label><br>
                         
-                        <select class="form-comtrol" th:field="*{paciente.codigo}">
+                        <select class="form-control" th:field="*{paciente.codigo}">
                         <option th:each="paci:${pacientes}" th:value="${paci.codigo}" th:text="${paci.nombredeusuario}"></option>
                         </select>   <br>
                         
       
                         <label  class="form-label" >Servicio:</label><br>
                       
-                       <select class="form-comtrol" th:field="*{servicio.idServicio}">
+                       <select class="form-control" th:field="*{servicio.idServicio}">
                         <option th:each="serv:${servicios}" th:value="${serv.idServicio}" th:text="${serv.nombreServicio}"></option>
                         </select><br>
                         
