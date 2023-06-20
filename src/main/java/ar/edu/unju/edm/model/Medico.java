@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Medico {
 	@Id 
-	@GeneratedValue (strategy=GenerationType.AUTO)
+	//@GeneratedValue (strategy=GenerationType.AUTO)
 	private Integer matricula;
 	private String nombreApellido; 
 	private Integer dni;
@@ -25,7 +25,7 @@ public class Medico {
 	@JoinColumn(name="codigo")
 	Especialidad especialidad;
 	public Medico() {
-
+		this.especialidad = new	Especialidad();
 	}
 
 	public Medico(Integer matricula, String nombreApellido, Integer dni, String direccion, Integer telefono,

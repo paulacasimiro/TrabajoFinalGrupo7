@@ -46,7 +46,7 @@ color: white;
 		<tbody class="table-group-divider">
 			<tr th:each="ps:${listadeturnos}" class="text-center">
 			<td class="black" th:text="${ps.idReservadeServicio}"></td>
-              <td class="black" th:text="${ps.paciente.nombredeusuario}"></td>
+              <td class="black" th:text="${ps.paciente.nombreyapellido}"></td>
 			 <td class="black" th:text="${ps.servicio.nombreServicio}"></td>
 			
 			<td class="black" th:text="${ps.fechadeinicio}"></td>
