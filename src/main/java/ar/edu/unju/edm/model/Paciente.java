@@ -2,12 +2,12 @@ package ar.edu.unju.edm.model;
 
 import org.springframework.stereotype.Component;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
 
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Component
 @Entity
@@ -26,8 +26,10 @@ public class Paciente {
 	private String gmail;
     private String nombredeusuario;
     
+    private String tipo;
+    
     public Paciente(String nombreyapellido, String password, String dNI, String direccion, Integer codigo,
-			Boolean estado, String gmail, String nombredeusuario) {
+			Boolean estado, String gmail, String nombredeusuario,String tipo) {
 		super();
 		this.nombreyapellido = nombreyapellido;
 		this.password = password;
@@ -37,6 +39,7 @@ public class Paciente {
 		this.estado = estado;
 		this.gmail = gmail;
 		this.nombredeusuario = nombredeusuario;
+		this.tipo = tipo;
 	}
 	 public Paciente(){
 			
@@ -51,7 +54,15 @@ public class Paciente {
 			this.nombreyapellido = nombreyapellido;
 		}
 
-
+		
+		
+		
+		public String getTipo() {
+			return tipo;
+		}
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
 		public String getPassword() {
 			return password;
 		}
