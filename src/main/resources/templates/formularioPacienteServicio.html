@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
-<title>REGISTRAR TURNOS</title>
+<title>REGISTRAR RESERVA</title>
 <link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" th:href="@{./style.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -27,30 +27,40 @@ body{
          <div class="col-6">
 				  <form th:object="${reserva}" th:action="@{/guardarPacienteServicio}" method="post">
 				  
-				    	<h4>Registrar Turno</h4>
+				    	<h4>Registrar Reserva</h4>
 				    	
 				    	
-			 <div class="container"> 
+			 		<div class="container"> 
 				      
                         <label  class="form-label">Usuario:</label><br>
                         
                         <select class="form-control" th:field="*{paciente.codigo}">
                         <option th:each="paci:${pacientes}" th:value="${paci.codigo}" th:text="${paci.nombredeusuario}"></option>
-                        </select>   <br>
+                        </select><br>
                         
       
                         <label  class="form-label" >Servicio:</label><br>
-                      
                        <select class="form-control" th:field="*{servicio.idServicio}">
                         <option th:each="serv:${servicios}" th:value="${serv.idServicio}" th:text="${serv.nombreServicio}"></option>
                         </select><br>
                         
+                        
                       	<label class="form-label">Fecha de Inicio:</label><br> 
-				<input class="form-control" type="date" th:field="*{fechadeinicio}"></input><br>  
+                      	<input class="form-control" type="date" th:field="*{fechadeinicio}"></input><br>       	
+						<!-- <div>
+							<input class="form-control" type="date" 
+							onkeydown="return false"
+							th:field="${reserva.fechadeinicio}"
+							th:value="${#dates.format(reserva.fechadeinicio, 'yyyy-MM-dd')}"> 
+							<smal class="form-text text-danger" th:if="${#fields.hasErrors('fechadeinicio')}" th:errors="*{fechadeinicio}"/>
+							<br> 
+						</div>-->
            
-            	<label class="form-label">Fecha de Finalizacion:</label><br> 
-				<input class="form-control" type="date" th:field="*{fechadefinalizacion}"></input><br> 
-           <br>
+            			<label class="form-label">Fecha de Finalizacion:</label><br> 
+						<input class="form-control" type="date" th:field="*{fechadefinalizacion}"></input><br> 
+						<!-- <smal class="form-text text-danger" th:if="${#fields.hasErrors('fechadefinalizacion')}" th:errors="*{fechadefinalizacion}"/> -->
+						
+          				<br>
 						<input class="btn btn-info" type="submit" href="/guardarPacienteServicio"value="REGISTRAR TURNO">
 						
 					</div>	

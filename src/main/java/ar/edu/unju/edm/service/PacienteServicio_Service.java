@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.model.Paciente_Servicio;
+import ar.edu.unju.edm.model.Servicio;
 
 @Service
 public interface PacienteServicio_Service {

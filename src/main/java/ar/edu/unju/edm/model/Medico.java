@@ -3,20 +3,26 @@ package ar.edu.unju.edm.model;
 import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Component
 @Entity
 public class Medico {
 	@Id 
-	//@GeneratedValue (strategy=GenerationType.AUTO)
 	private Integer matricula;
+	
+	@NotBlank(message = "Debe ingresar el nombre del medico")
+	@Size(min=3, max=30)
 	private String nombreApellido; 
+	
+	@NotNull(message = "Debe ingresar DNI")
 	private Integer dni;
+	
 	private String direccion;
 	private Integer telefono;
 	private Boolean estado;

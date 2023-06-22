@@ -31,26 +31,28 @@ body{
 			<h4>Registrar Servicio</h4>
 			<div class="form-container">
 		
-				<label class="form-label">ID Servicio:</label><br> 
-				<input class="form-control" type="number" th:field="*{idServicio}"></input><br> 
+				<!-- <label class="form-label">ID Servicio:</label><br>  
+				<input class="form-control" type="number" th:field="*{idServicio}"></input><br> -->
 				
 				<label class="form-label">Nombre del Servicio:</label><br> 
 				<div>
-					<input class="form-control" type="text" th:field=${servicio.nombreServicio}>
-					<br>
-					
+					<input class="form-control" type="text" placeholder="Ingrese nombre del servicio"	th:field="*{nombreServicio}">
+					<smal class="form-text text-danger" th:if="${#fields.hasErrors('nombreServicio')}" th:errors="*{nombreServicio}"/>
+					<br> 
 				</div>
 	
 				<label class="form-label">Costo del Servicio:</label><br> 
-				<input class="form-control" type="number" th:field="*{costoDelServicio}"></input><br>
+				<div>
+					<input class="form-control" type="number" placeholder="Ingrese costo del servicio" th:field="*{costoDelServicio}"></input>
+					<smal class="form-text text-danger" th:if="${#fields.hasErrors('costoDelServicio')}" th:errors="*{costoDelServicio}"/>
+					<br>
+				</div>
 				
 				<label class="form-label">Medico:</label><br> 
 				<select class="form-control" th:field="*{medico.matricula}">
 				<option th:each="m:${medico}" th:value="${m.matricula}" th:text="${m.nombreApellido}"></option>
 				</select><br>
-				
 
-				
 				<input class="btn btn-info" type="submit" href="/guardarMedico"value="REGISTRAR">
 			</div>
 	</form>

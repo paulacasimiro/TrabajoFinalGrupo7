@@ -29,12 +29,19 @@ background-color: black;
 				<input type="hidden" class="form-control" th:if="${band}" th:field="*{codigo}">
 					<h4>Especialidades</h4>
 					<div class="form-container">
-						<label  th:if="${band == false}">Codigo:</label><br> 
+					
+						<!--  <label  th:if="${band == false}">Codigo:</label><br> 
 						<input class="form-control" type="number" th:field="*{codigo}" th:if="${band == false}"></input><br>
+						-->
 						<label class="form-label">Nombre:</label><br> 
-						<input class="form-control" type="text" th:field="*{nombre}"></input><br>
+						<!-- <input class="form-control" type="text" th:field="*{nombre}"></input><br> -->
+						<div>
+							<input class="form-control" type="text" placeholder="Ingrese nombre de la especialidad"	th:field="*{nombre}">
+							<smal class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"/>
+						</div>
+						
 						<label class="form-label">Descripcion:</label><br> 
-						<input class="form-control" type="text" th:field="*{descripcion}"></input><br>
+						<input class="form-control" type="text" placeholder="Ingrese una descripcion" th:field="*{descripcion}"></input><br>
 						<input class="btn btn-info" type="submit" value="INGRESAR">
 
 					</div>

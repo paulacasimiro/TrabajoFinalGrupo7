@@ -9,10 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-/*import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;*/
+import jakarta.validation.constraints.Size;
 
 
 @Component
@@ -20,14 +19,14 @@ import jakarta.validation.constraints.Size;*/
 public class Servicio {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	//@NotNull(message = "Debe ingresar el ID")
 	private Integer idServicio;
-	//@NotBlank(message = "Debe ingresar el costo del servicio")
+	
+	@NotNull(message = "Debe ingresar el costo del servicio")
 	private Integer costoDelServicio;
 	
-	//@NotBlank(message = "Debe ingresar el nombre del servicio")
-	//@Size(min = 3, max = 20, message = "El nombre del servicio debe tener entre 3  20 caracteres")
 	//@Pattern(regexp = "[a-zA-Z]+", message = "El servicio solo puede contener letras")
+	@NotBlank(message = "Debe ingresar el nombre del servicio")
+	@Size(min = 3, max = 20)
 	private String nombreServicio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

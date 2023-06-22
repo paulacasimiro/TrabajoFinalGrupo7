@@ -2,6 +2,7 @@ package ar.edu.unju.edm.model;
 
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
@@ -11,6 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
+
 @Component 
 @Entity
 public class Paciente_Servicio {
@@ -18,6 +21,7 @@ public class Paciente_Servicio {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Integer idReservadeServicio;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="codigo_pacientes")
 	Paciente paciente;
@@ -26,7 +30,12 @@ public class Paciente_Servicio {
 	@JoinColumn(name="idServicio") 
 	Servicio servicio;
 	
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@NotNull(message = "Debe ingresar una fecha de inicio")
 	private Date fechadeinicio;
+	
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@NotNull(message = "Debe ingresar una fecha de finalizacion")
 	private Date fechadefinalizacion;
 	
 	public Paciente_Servicio() {

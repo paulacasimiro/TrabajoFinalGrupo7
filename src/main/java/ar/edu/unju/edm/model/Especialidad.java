@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Component
 @Entity
@@ -13,7 +15,11 @@ public class Especialidad {
 	@Id 
 	@GeneratedValue (strategy=GenerationType.AUTO)
 	private Integer codigo; 
+	
+	@NotBlank(message = "Debe ingresar el nombre de la especialidad")
+	@Size(min = 3, max = 20)
 	private String nombre; 
+	
 	private String descripcion; 
 	private Boolean estado;
 	

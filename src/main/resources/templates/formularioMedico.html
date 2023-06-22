@@ -34,17 +34,33 @@ body{
 			<div class="form-container">
 		
 				<label class="form-label" th:if="${band == false}">Matricula:</label><br> 
-				<input class="form-control" type="number" th:field="*{matricula}" th:if="${band == false}"></input><br>
+				<input class="form-control" type="number" placeholder="Ingrese la matricula" th:field="*{matricula}" th:if="${band == false}"></input><br>
 	
 			    <label class="form-label">Nombre y Apellido:</label><br> 
-				<input class="form-control" type="text" th:field="*{nombreApellido}"></input><br>
+				<!-- <input class="form-control" type="text" th:field="*{nombreApellido}"></input><br> -->
+				<div>
+					<input class="form-control" type="text" placeholder="Ingrese nombre y apellido"	th:field="*{nombreApellido}">
+					<smal class="form-text text-danger" th:if="${#fields.hasErrors('nombreApellido')}" th:errors="*{nombreApellido}"/>
+					<br>
+				</div>
+				
 				<label class="form-label">DNI:</label><br>
-				<input class="form-control" type="number" th:field="*{dni}"></input><br>
+				<div>
+					<input class="form-control" type="number" placeholder="Ingrese DNI" 
+					maxlength="8" oninput="if(this.value.length > this.mexLength) this.value = this.value.slice(0, this.maxLength);"
+					th:field="*{dni}"
+					step="any">
+					<smal class="form-text text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"/>
+					<br>
+				</div>
+				
+				<!-- <input class="form-control" type="number" th:field="*{dni}"></input><br> -->
 				<label class="form-label">Direccion:</label><br> 
-				<input class="form-control" type="text" th:field="*{direccion}"></input><br>
+				<input class="form-control" type="text" placeholder="Ingrese direccion" th:field="*{direccion}"></input><br>
 						
 				<label class="form-label">Numero de Telefono:</label><br> 
-				<input class="form-control" type="number" th:field="*{telefono}"></input><br>
+				<input class="form-control" type="number"  placeholder="Ingrese num de telefono" th:field="*{telefono}"></input><br>
+				
 				<label class="form-label">Especialidad:</label><br> 
 				<select class="form-control" th:field="*{especialidad.codigo}">
 				<option th:each="e:${especialidad}" th:value="${e.codigo}" th:text="${e.nombre}"></option>
