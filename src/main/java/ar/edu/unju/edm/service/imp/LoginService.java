@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.model.Paciente;
 import ar.edu.unju.edm.repository.PacienteRepository;
 
+
 @Service
 public class LoginService implements UserDetailsService {
 
