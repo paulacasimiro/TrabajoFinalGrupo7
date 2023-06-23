@@ -1,25 +1,19 @@
 package ar.edu.unju.edm.model;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import org.springframework.stereotype.Component;
-/*import jakarta.persistence.Entity;
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;*/
+import jakarta.persistence.ManyToOne;
 
 @Component
 @Entity
 public class Medico {
 	@Id 
-	//@GeneratedValue (strategy=GenerationType.AUTO)
+	@GeneratedValue (strategy=GenerationType.AUTO)
 	private Integer matricula;
 	private String nombreApellido; 
 	private Integer dni;
@@ -31,7 +25,7 @@ public class Medico {
 	@JoinColumn(name="codigo")
 	Especialidad especialidad;
 	public Medico() {
-		this.especialidad = new	Especialidad();
+
 	}
 
 	public Medico(Integer matricula, String nombreApellido, Integer dni, String direccion, Integer telefono,

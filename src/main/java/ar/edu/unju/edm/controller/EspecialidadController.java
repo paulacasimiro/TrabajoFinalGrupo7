@@ -85,13 +85,5 @@ public class EspecialidadController {
 			
 		}
 	
-		@GetMapping ("/listado")
-		public ModelAndView mostrarEspecialidad() {
-			ModelAndView form= new ModelAndView ("listado"); 
-			//form.addObject("especialidad", unaEsp); 
-			//form.addObject("band", false);
-			form.addObject("listado", especialidadSer.listarTodasEspecialidades());
-			return form; 
-			
-		}	
+
 }

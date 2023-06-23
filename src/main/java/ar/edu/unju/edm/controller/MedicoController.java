@@ -2,7 +2,6 @@ package ar.edu.unju.edm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -70,24 +69,23 @@ public class MedicoController {
 		return modelAndView;
 	} 
 	
-	
 	@GetMapping("/eliminarMedico/{matricula}")
-	public String otroeliminarMedico (@PathVariable (name = "matricula") Integer matricula, Model model) {
- 
+	public ModelAndView eliminarMedico (@PathVariable (name = "matricula") Integer matricula) {
+		ModelAndView nuevo= new ModelAndView ("listadoMedico"); 
 		try {
-			medicoService.eliminarMedico(matricula);
+			medicoService.eliminarMedico(matricula); 
 		}catch (Exception e) {
-			model.addAttribute("eliminarMedicoErrorMessage", e.getMessage()); 
-		}	
-		return "redirect:/listadoMedico";
-	
-	}
-	@GetMapping ("/listadoMedico")
-	public ModelAndView mostrarMedico() {
-		ModelAndView form= new ModelAndView ("listadoMedico"); 
-		form.addObject("listadoMedico", medicoService.listarTodosMedicos());
-		return form; 
+			nuevo.addObject("eliminarMedicoErrorMessage", e.getMessage()); 
+		}
 		
-	}	
-	
+		try {
+			nuevo.addObject("listadoMedico", medicoService.listarTodosMedicos()); 
+		}catch (Exception e) {
+			nuevo.addObject("eliminarMedicoErrorMessage", e.getMessage()); 
+			
+		}
+		return nuevo;
+		
+	}
+
 }

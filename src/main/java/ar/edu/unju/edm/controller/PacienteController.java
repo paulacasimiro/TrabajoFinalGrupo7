@@ -1,12 +1,13 @@
 package ar.edu.unju.edm.controller;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.edm.model.*;
 import ar.edu.unju.edm.service.PacienteService;
@@ -21,30 +22,23 @@ public class PacienteController {
 	@Autowired 
 	Paciente unPaciente; 
 	 
-	 @GetMapping("/paciente")
-	public ModelAndView registrarPaciente(){
-		ModelAndView modelAndView = new ModelAndView("formularioPaciente");
-		modelAndView.addObject("paciente", unPaciente);
-		modelAndView.addObject("band", false);
-				
-		return modelAndView;
+     @GetMapping("/registrodepaciente")
+    	public ModelAndView mostrarFormulario(@RequestParam("codigo") Optional<Integer> codigo) {
+        	Optional<Paciente> optPaciente = codigo.map(pacienteService::modificarPaciente).orElse(Optional.of(new Paciente()));
+		Paciente paciente = optPaciente.get(); // .orElse(null);
+		ModelAndView registroPaciente = new ModelAndView("formularioPaciente");
+		registroPaciente.addObject("paciente", paciente);
+
+        	return registroPaciente;
 	}
- 
-	@PostMapping("/guardarPaciente")
-	public ModelAndView guardarPaciente(@ModelAttribute("paciente") Paciente pacienteConDatos) {
-		ModelAndView lista= new ModelAndView ("MostrarPacientes"); 
-		pacienteService.registrarPaciente(pacienteConDatos);
-		lista.addObject("listadoPaciente", pacienteService.listarTodoslosPacientes()); 
-		
-		return lista;
-	} 
-	   
-    @GetMapping("/editarPaciente/{codigo}")
- 	public ModelAndView editarPaciente(@PathVariable(name="codigo") Integer codigo) {
+	
+     
+    @GetMapping("/modificarPaciente/{codigo}")
+ 	public ModelAndView getFormEditMovie(@PathVariable(name="codigo") Integer codigo) {
  		ModelAndView modelAndView = new ModelAndView("formularioPaciente");
  		
  		try {
- 			modelAndView.addObject("paciente",pacienteService.listarUnPaciente(codigo));
+ 			modelAndView.addObject("pacienteModificar",pacienteService.listarUnPaciente(codigo));
  		}catch (Exception e) {
  			modelAndView.addObject("modificarPacienteErrorMessage", e.getMessage()); 
  		}
@@ -53,34 +47,32 @@ public class PacienteController {
  		
  		return modelAndView;
  	}
-      
-    @PostMapping("/modificarPaciente")
-	public ModelAndView modificarPaciente(@ModelAttribute("codigo") Paciente pacienteConDatos) {
-		ModelAndView modelAndView= new ModelAndView ("MostrarPacientes"); 
-		pacienteService.registrarPaciente(pacienteConDatos);
-		modelAndView.addObject("listadoPaciente", pacienteService.listarTodoslosPacientes()); 
-		
-		return modelAndView;
-	} 
-
-	@GetMapping("/eliminarPaciente/{codigo}")
-	public String eliminarPaciente (@PathVariable (name = "codigo") Integer codigo, Model model) {
- 
+     
+      @GetMapping("/eliminarPaciente/{codigo}")
+	public ModelAndView eliminarPaciente (@PathVariable (name = "codigo") Integer codigo) {
+		ModelAndView nuevo= new ModelAndView ("MostrarPacientes"); 
 		try {
-			pacienteService.eliminarPaciente(codigo);
+			pacienteService.eliminarPaciente(codigo); 
 		}catch (Exception e) {
-			model.addAttribute("eliminarPacienteErrorMessage", e.getMessage()); 
-		}	
-		return "redirect:/listadoPaciente";
-	
+			nuevo.addObject("eliminarPacienteErrorMessage", e.getMessage()); 
+		}
+		
+		try {
+			nuevo.addObject("listado", pacienteService.listarTodoslosPacientes()); 
+		}catch (Exception e) {
+			nuevo.addObject("eliminarPacienteErrorMessage", e.getMessage()); 
+			
+		}
+		return nuevo;
+		
 	}
     
-	@GetMapping ("/listadoPaciente")
-	public ModelAndView mostrarPaciente() {
-		ModelAndView form= new ModelAndView ("MostrarPacientes"); 
-		form.addObject("listadoPaciente", pacienteService.listarTodoslosPacientes());
-		return form; 
-		
-	}	  
+      @PostMapping("/registrarPaciente")
+	public ModelAndView registrarPaciente(@ModelAttribute("formularioPaciente") Paciente PacienteconDatos) {
+		ModelAndView nuevo= new ModelAndView ("MostrarPacientes"); 
+		pacienteService.registrarPaciente(PacienteconDatos);
+		nuevo.addObject("listado", pacienteService.listarTodoslosPacientes()); 
+		return nuevo;
+	}  
 
 }

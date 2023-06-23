@@ -6,7 +6,7 @@
 
 <title>REGISTRAR MEDICO</title>
 <link rel="stylesheet" href="./footandheadstyle.css">
-<link rel="stylesheet" th:href="@{./style.css}">
+<link rel="stylesheet" th:href="@{./styleCargarMedico.css}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
 
@@ -17,11 +17,15 @@ body{
 </style>
 </head>
 <body>
+
+
 <div class="container">
 <div th:replace="~{footandhead :: header}"></div>
 	<div class="row">	
 		<div class="col-3">
+		
 		</div>
+	
 		<div class="col">
 		<form calss="form" th:object="${medico}" 
 		th:action="${band}?@{/modificarMedico}:@{/guardarMedico}" 
@@ -57,11 +61,10 @@ body{
 	
 	</div>
 	<div class="col-3">
-	</div>
 	
 	</div>
+
 	</div>
-	
 	<div th:replace="~{footandhead :: footer}"></div>
 
 </div>
