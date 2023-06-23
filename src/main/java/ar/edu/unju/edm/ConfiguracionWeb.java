@@ -28,9 +28,9 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 		     .authorizeRequests()
 		         .antMatchers(resources).permitAll()
 		         //metodos definidos para cualquier usuario comun
-		         .antMatchers("/","index","registrarPaciente","guardarPaciente").permitAll()
-		         //metodos definidos para el Admin
-		         .antMatchers("/listadoPaciente","/listado","/listadoMedico").hasAnyAuthority("ADMIN")
+		         .antMatchers("/","/index","/paciente2","/guardarPaciente2").permitAll()
+		         //metodos definidos para el Admin---poner los otros metodos 
+		         .antMatchers("/medico","/listadoPaciente","/listado","/listadoMedico","/especialidad").hasAuthority("ADMIN")
 		         .anyRequest().authenticated()
 		         .and()
 		         
@@ -39,7 +39,7 @@ public class ConfiguracionWeb extends WebSecurityConfigurerAdapter {
 		        .permitAll()
 		        .successHandler(autenticacion)
 		        .failureUrl("/login?error=true")
-		        .usernameParameter("nombredeusuario")
+		        .usernameParameter("codigo")
 		        .passwordParameter("password")
 		        .and()
 		        

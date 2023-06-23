@@ -22,7 +22,7 @@ body{
          
        </div>
          <div class="col-6">
-				  <form th:object="${paciente}" th:action="${band}?@{/modificarPaciente}:@{/guardarPaciente}" method="post"> 
+				  <form th:object="${paciente}" th:action="@{/guardarPaciente2}" method="post"> 
 		
 		<input type="hidden" class="form-control" th:if="${band}" th:field="*{codigo}">
 		<input type="hidden" class="form-control" th:if="${band}" th:field="*{estado}">
@@ -43,8 +43,8 @@ body{
 						<input class="form-control" type="text" th:field="*{DNI}"></input><br>
 						<label class="form-label">Direccion:</label><br> 
 						<input class="form-control" type="text" th:field="*{direccion}"></input><br>
-				<input class="btn btn-info" type="submit"value="REGISTRAR PACIENTE">
 						
+				<input class="btn btn-info" type="submit"value="REGISTRAR">
 				
 						 
 					</div>	

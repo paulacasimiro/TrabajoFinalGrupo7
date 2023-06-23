@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>TURNOS REGISTRADOS</title>
+<title>SERVICIOS REGISTRADOS</title>
 
 <link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" href="./styleCargarMedico.css">
@@ -30,32 +30,28 @@ color: white;
 <div th:replace= "~{footandhead :: header}"></div>
 
 <div class="col">
-	<h4>Turnos Registrados</h4>
+	<h4>Servicios Registrados</h4>
 </div>
 	
 	<table class="table table-dark table-hover">
 		<thead>
 			<tr class="text-center">
-				  <th scope="col">Codigo de Reserva</th>
-               <th scope="col">Usuario</th>
-               <th scope="col">Servicio</th>
-                <th scope="col">Fecha de inicio</th>
-                 <th scope="col">Fecha de Finalizacion</th>
+				<th scope="col">ID Servicio</th>
+				<th scope="col">Nombre del Servicio</th>
+				<th scope="col">Costo del Servicio</th>
+				<th scope="col">Medico</th>
 			</tr>
 		</thead>
 		<tbody class="table-group-divider">
-			<tr th:each="ps:${listadeturnos}" class="text-center">
-			<td class="black" th:text="${ps.idReservadeServicio}"></td>
-              <td class="black" th:text="${ps.paciente.nombreyapellido}"></td>
-			 <td class="black" th:text="${ps.servicio.nombreServicio}"></td>
-			
-			<td class="black" th:text="${ps.fechadeinicio}"></td>
-			 <td class="black" th:text="${ps.fechadefinalizacion}"></td>
-		 
- 
+			<tr th:each="s:${listadoServicio}" class="text-center">
+			<td class="black" th:text="${s.idServicio}"></td>
+			<td class="black" th:text="${s.nombreServicio}"></td>
+			<td class="black" th:text="${s.costoDelServicio}"></td>
+			<td class="black" th:text="${s.medico.nombreApellido}"></td>
+
 			</tr>
 		</tbody>
 	</table>
-	<a class="btn btn-info" href="/pacienteServicio">Registrar otro turno</a>
+	<a class="btn btn-info" href="/servicio">Registrar otro Servicio</a>
 </body>
 </html>

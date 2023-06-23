@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" href="./styleCargarMedico.css">
-
+<link rel="stylesheet" href="./footandheadstyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -37,24 +37,24 @@ color: white;
 		<thead>
 			<tr class="text-center">
 				<th scope="cool">Matricula</th>
-				<th scope="cool">Nombre</th>
-				<th scope="cool">Apellido</th>
+				<th scope="cool">Nombre y Apellido</th>
 				<th scope="cool">DNI</th>
 				<th scope="cool">Direccion</th>
 				<th scope="cool">Telefono</th>
 				<th scope="cool">Estado</th>
+				<th scope="cool">Especialidad</th>
 				<th scope="cool">Edicion</th>
 			</tr>
 		</thead>
 		<tbody class="table-group-divider">
 			<tr th:each="medico:${listadoMedico}" class="text-center">
 			<td class="black" th:text="${medico.matricula}"></td>
-			<td class="black" th:text="${medico.nombre}"></td>
-			<td class="black" th:text="${medico.apellido}"></td>
+			<td class="black" th:text="${medico.nombreApellido}"></td>
 			<td class="black" th:text="${medico.dni}"></td>
 			<td class="black" th:text="${medico.direccion}"></td>
 			<td class="black" th:text="${medico.telefono}"></td>
 			<td class="black" th:text="${medico.estado}"></td>
+			<td class="black" th:text="${medico.especialidad.nombre}"></td>
 			
 			<td class="black">
 			
@@ -70,5 +70,7 @@ color: white;
 		</tbody>
 	</table>
 	<a class="btn btn-info" href="/medico">Registrar otro Medico</a>
+	
+	<div th:replace="~{footandhead :: footer}"></div>
 </body>
 </html>

@@ -14,7 +14,7 @@ import ar.edu.unju.edm.service.EspecialidadService;
 
 @Controller
 public class EspecialidadController {
-	@Autowired 
+	@Autowired  
 	EspecialidadService especialidadSer; 
 	@Autowired 
 	Especialidad unaEsp; 
