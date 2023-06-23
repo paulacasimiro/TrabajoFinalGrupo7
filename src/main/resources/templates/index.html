@@ -2,14 +2,80 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pagina Principal</title>
 <link rel="stylesheet" href="./stylePagPrincipal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
-</head>
+=======
+  <meta charset="UTF-8">
+  <title>Grupo7</title>
+  <!-- <link rel="stylesheet" href="./footandheadstyle.css">
+ <link rel="stylesheet" th:href="@{./style.css}"> -->
 
+  <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+  <style>
+
+    .heartbeat-img {
+      animation: pulse 1s ease-in-out infinite;
+      width: 180px; /* Cambia el tamaño de la imagen */
+      position: absolute; /* Cambia la posición a absoluta */
+      top: 32%; /* Ajusta la posición verticalmente */
+      left: 45%; /* Ajusta la posición horizontalmente */
+      transform: translate(-50%, -50%); /* Centra la imagen horizontal y verticalmente */
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    body {
+    	color: white;
+    	background: black;
+    	font-family: 'georgia';
+    }
+    
+    .display-1 {
+      font-size: 15rem; /* Ajusta el tamaño del texto "Clinica" */
+      font-weight: bold; /* Pone el texto en negrita */
+      position: absolute; /* Cambia la posición a absoluta */
+      top: 15%; /* Ajusta la posición verticalmente */
+      left: 49%; /* Ajusta la posición horizontalmente */
+      transform: translate(-50%, -50%); /* Centra el texto horizontal y verticalmente */
+    }
+
+    .btn-container {
+      position: absolute; /* Cambia la posición a absoluta */
+      bottom: 5%; /* Ajusta la posición verticalmente */
+      left: 50%; /* Ajusta la posición horizontalmente */
+      transform: translateX(-50%); /* Centra horizontalmente */
+    }
+
+    .btn-container .btn {
+      margin: 5px; /* Ajusta el margen entre los botones */
+    }
+    
+  </style>
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
+</head>
+<<<<<<< HEAD
+=======
+<body>
+<!-- <div th:replace= "~{footandhead :: header}"></div> -->
+  <img class="heartbeat-img" src="./me-gusta.png" alt="./me-gusta.png">
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
+
+<<<<<<< HEAD
 <body>
 <header>
 	<div class="container">
@@ -66,6 +132,18 @@
       <div class="carousel-caption d-none d-md-block">
         <h5>Respeto y Comprensión</h5>
         <p>Procuramos que nuestros pacientes se sientan a gusto en nuestra clinica</p>
+=======
+  <div class="col-3">
+		
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="display-1">MEDIC</h1>
+        <footer>
+        </footer>
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
       </div>
     </div>
     <div class="carousel-item">
@@ -75,6 +153,7 @@
        <p>Renovamos nuestro equipamiento frecuentemente para mejorar la efectividad de nuestros servicios</p>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -87,7 +166,11 @@
 </div>
 		
 	</section>
+=======
+   
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
 
+<<<<<<< HEAD
 	<footer class="footer">
 		<div class="container">
 			<div class="footer-row">
@@ -109,7 +192,24 @@
 				<div class="footer-links">
 					<h4>Seguinos</h4>
 					<div class="social-link">
+=======
+  <div class="btn-container">
+    <a class="btn btn-outline-light" th:href="@{/especialidad}">Especialidad</a>
+    <a class="btn btn-outline-light" th:href="@{/medico}">Medico</a>
+    <a class="btn btn-outline-light" th:href="@{/paciente}">Paciente</a>
+    <a class="btn btn-outline-light" th:href="@{/servicio}">Servicio</a>
+    <a class="btn btn-outline-light" th:href="@{/pacienteServicio}">Reserva</a>
+    
+  </div>
+  </div>
+  <div class="col-3">
+  
+  </div>
+  
+<!-- <div th:replace="~{footandhead :: footer}"></div> -->
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
 
+<<<<<<< HEAD
 						<a href="#"><i class="fab fa-facebook-f"></i></a> 
 						<a href="#"><i class="fab fa-instagram"></i></a> 
 						<a href="#"><i class="fab fa-twitter"></i></a>
@@ -123,6 +223,9 @@
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
 	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"
 		type="text/javascript"></script>
+=======
+  <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}" type="text/javascript"></script>
+>>>>>>> branch 'master' of https://github.com/paulacasimiro/TrabajoFinalGrupo7.git
 
 </body>
 
