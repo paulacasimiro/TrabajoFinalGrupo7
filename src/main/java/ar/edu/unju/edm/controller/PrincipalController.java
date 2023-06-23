@@ -16,7 +16,7 @@ public class PrincipalController {
 	@Autowired
 	Paciente usuario;
 	
-	@GetMapping("/login")
+	@GetMapping({"/login","/","/index"})
 	public ModelAndView cargarPrincipal(){ 
 		ModelAndView modelAndView = new ModelAndView("princi");
 		modelAndView.addObject("usuario",usuario);

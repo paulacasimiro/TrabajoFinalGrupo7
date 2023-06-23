@@ -28,7 +28,7 @@ public class MedicoApplication implements CommandLineRunner {
 		usuario.setCodigo(12);
 		usuario.setNombredeusuario("ingrid");
 		usuario.setPassword("1234");
-		usuario.setTipo("ADMIN");
+		usuario.setTipo("USUARIO");
 		ps.registrarPaciente(usuario);
 		
 		
