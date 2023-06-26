@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ar.edu.unju.edm.model.Paciente;
 import ar.edu.unju.edm.repository.PacienteRepository;
@@ -19,16 +18,11 @@ public class ImpPacienteService implements PacienteService {
 	@Autowired 
 	PacienteRepository pacienteRepository; 
 	
-	@Override 
+	@Override
 	public void registrarPaciente(Paciente unPaciente) {
 		// TODO Auto-generated method stub
 		
 		unPaciente.setEstado(true);
-		unPaciente.setTipo("USUARIO");
-		String pw= unPaciente.getPassword();
-		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(4);
-		unPaciente.setPassword(encoder.encode(pw));
-		
 	pacienteRepository.save(unPaciente); 
 		
 	}
