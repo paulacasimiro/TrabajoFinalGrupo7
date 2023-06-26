@@ -31,14 +31,13 @@ body{
 			<h4>Registrar Servicio</h4>
 			<div class="form-container">
 		
-				<label class="form-label">ID Servicio:</label><br> 
+				<!--  <label class="form-label">ID Servicio:</label><br> 
 				<input class="form-control" type="number" th:field="*{idServicio}"></input><br> 
-				
+				-->
 				<label class="form-label">Nombre del Servicio:</label><br> 
 				<div>
 					<input class="form-control" type="text" th:field=${servicio.nombreServicio}>
 					<br>
-					
 				</div>
 	
 				<label class="form-label">Costo del Servicio:</label><br> 
@@ -52,6 +51,9 @@ body{
 
 				
 				<input class="btn btn-info" type="submit" href="/guardarMedico"value="REGISTRAR">
+				
+				 <a class="btn btn-outline-light" th:href="@{/vistaAdministrador}">Pagina de Aministrador</a>
+				
 			</div>
 	</form>
 	

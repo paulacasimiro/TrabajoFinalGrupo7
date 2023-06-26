@@ -22,7 +22,7 @@ body{
          
        </div>
          <div class="col-6">
-				  <form th:object="${paciente}" th:action="${band}?@{/modificarPaciente}:@{/guardarPaciente}" method="post"> 
+				  <form th:object="${paciente}" th:action="@{/guardarPaciente2}" method="post"> 
 		
 		<input type="hidden" class="form-control" th:if="${band}" th:field="*{codigo}">
 		<input type="hidden" class="form-control" th:if="${band}" th:field="*{estado}">
@@ -30,23 +30,24 @@ body{
 				   
 					  <div class="form-group mb-3"> 
 				        <label class="form-label">Nombre y Apellido:</label><br>
-                        <input class="form-control"  type="text" placeholder="Ingrese nombre y apellido" th:field="*{nombreyapellido}"></input> <br>
+                        <input class="form-control"  type="text" placeholder="Ingrese nombre y apellido" th:field="*{nombreyapellido}"></input> <br> 
                         <label class="form-label">DNI:</label><br> 
-						<input class="form-control" type="text" placeholder="Ingrese el DNI" th:field="*{DNI}"></input><br> 
-                        <label  class="form-label" >Nombre de usuario:</label><br>
-                        <input class="form-control" type="text" placeholder="Ingrese el nombre usuario" th:field="*{nombredeusuario}"></input><br> 
+						<input class="form-control" type="text" placeholder="Ingrese DNI" th:field="*{DNI}"></input><br>
+                       	<label  class="form-label" >Nombre de usuario:</label><br>
+                        <input class="form-control" type="text" placeholder="Ingrese nombre de usuario" th:field="*{nombredeusuario}"></input><br> 
                         <label class="form-label" >Password</label><br>
-                        <input class="form-control"  type="password" placeholder="Ingrese la cantrasena" th:field="*{password}" ></input> <br> 
+                        <input class="form-control"  type="password" placeholder="Ingrese contrasena" th:field="*{password}" ></input> <br> 
                         <label class="form-label" >Email:</label><br>
-                        <input class="form-control" type="email" placeholder="Ingrese el email" th:field="*{gmail}" ></input><br> 
-                        
-						<!-- <label class="form-label" th:if="${band == false}">Codigo:</label><br>   
-						<input class="form-control" type="number" th:field="*{codigo}" th:if="${band == false}"></input><br> -->
-						<label class="form-label">Direccion:</label><br> 
+                        <input class="form-control" type="email" placeholder="Ingrese email" th:field="*{gmail}" ></input><br> 
+                        <!-- <label class="form-label" th:if="${band == false}">Codigo:</label><br>   
+						<input class="form-control" type="number" th:field="*{codigo}" th:if="${band == false}"></input><br>
+		 				 -->
+		 				<label class="form-label">Direccion:</label><br> 
 						<input class="form-control" type="text" placeholder="Ingrese la direccion" th:field="*{direccion}"></input><br>
-				<input class="btn btn-info" type="submit"value="REGISTRAR PACIENTE">
-					<a class="btn btn-outline-light" th:href="@{/vistaAdministrador}">Pagina de Aministrador</a>
-
+						
+				<input class="btn btn-info" type="submit"value="REGISTRAR">
+				
+						 
 					</div>	
 						
 				</form>

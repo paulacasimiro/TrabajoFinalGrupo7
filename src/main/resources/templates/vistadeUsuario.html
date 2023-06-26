@@ -13,7 +13,7 @@
 	background: black;
 }
  </style>
-<title>Mostrar Pacientes</title>
+<title>Mostrar Pacientes-Vista Usuario</title>
 </head>
 <body>
 
@@ -29,37 +29,28 @@
                <th scope="col">Codigo</th>
                <th scope="col">Nombre y Apellido</th>
                <th scope="col">DNI</th>
-                <th scope="col">Nombre de Usuario</th>
+               <th scope="col">Estado</th>
+               <th scope="col">Nombre de Usuario</th>
                <th scope="col">Direccion</th>
-                <th scope="col">Email</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Gmail</th>
+  
               </tr> 
 		</thead>
 		<tbody class="table-group-divider">
-			<tr th:each="paciente:${listadoPaciente}" class="text-center">
+			<tr th:each="paciente:${listadoPaciente2}" class="text-center">
 			 <td class="black" th:text="${paciente.codigo}"></td>
               <td class="black" th:text="${paciente.nombreyapellido}"></td>
                 <td class="black" th:text="${paciente.DNI}"></td>
-                <td class="black" th:text="${paciente.nombredeusuario}"></td>
+                  <td class="black" th:text="${paciente.estado}"></td>
+              	<td class="black" th:text="${paciente.nombredeusuario}"></td>
               <td class="black" th:text="${paciente.direccion}"></td>
       			<td class="black" th:text="${paciente.gmail}"></td>
-      			<td class="black" th:text="${paciente.estado}"></td>
 			
-			<td class="black">
-			<a th:href="@{'/editarPaciente/'+${paciente.codigo}}">
-			<span class="material-symbols-outlined">edit</span>
-			</a>
-			<a th:href="@{'/eliminarPaciente/'+${paciente.codigo}}">
-			<span class="material-symbols-outlined">delete</span>
-			</a>
-			   
-			</td>
 			</tr>
 		</tbody>
 	</table>
-	<a class="btn btn-info" href="/paciente">Registrar otro Paciente</a>
- <a class="btn btn-outline-light" th:href="@{/vistaAdministrador}">Pagina de Aministrador</a>
+	<a class="btn btn-info" href="/paciente2">Registrar otro Paciente</a>
+
 	<div th:replace="~{footandhead :: footer}"></div>
 
 </body>

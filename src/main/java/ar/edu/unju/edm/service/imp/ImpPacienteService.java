@@ -24,7 +24,7 @@ public class ImpPacienteService implements PacienteService {
 		// TODO Auto-generated method stub
 		
 		unPaciente.setEstado(true);
-		unPaciente.setTipo("USUARIO");
+		unPaciente.setTipo("ADMIN");
 		String pw= unPaciente.getPassword();
 		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(4);
 		unPaciente.setPassword(encoder.encode(pw));

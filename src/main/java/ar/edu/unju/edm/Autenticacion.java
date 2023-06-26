@@ -22,32 +22,29 @@ public class Autenticacion implements AuthenticationSuccessHandler  {
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		Boolean tipoPaciente=false,tipoAdmin=false;
+	
+		Boolean tipoPaciente=false, tipoAdmin=false;
 		
 		Collection<?extends GrantedAuthority> autorizaciones = authentication.getAuthorities();
 		for (GrantedAuthority granteAuthority:autorizaciones) {
-			
+			System.out.println("entrando al for");
+
 			if ( granteAuthority.getAuthority().equals("USUARIO")) {
 				tipoPaciente=true;
 				break;
-			}
-			else 
-			{
-				if ( granteAuthority.getAuthority().equals("ADMIN")) {
+			}else{
+				if(granteAuthority.getAuthority().equals("ADMIN")) {
 					tipoAdmin=true;
 					break;
 				}
 			}
 		}
 		
-		
 		if(tipoPaciente) {
-			redirectStrategy.sendRedirect(request, response,"/usuario");
-		}
-		else 
-		{
+			redirectStrategy.sendRedirect(request, response,"/pacienteServicio");
+		}else {
 			if(tipoAdmin) {
-				redirectStrategy.sendRedirect(request, response,"/listadeturnos");
+				redirectStrategy.sendRedirect(request, response,"/vistaAdministrador");//especialidad
 			}
 		}
 		

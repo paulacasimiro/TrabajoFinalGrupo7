@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 /*
@@ -17,8 +19,12 @@ import jakarta.persistence.Id;*/
 public class Especialidad {
 	@Id 
 	@GeneratedValue (strategy=GenerationType.AUTO)
-	private Integer codigo; 
+	private Integer codigo;
+	
+	//@NotBlank(message = "Debe ingresar el nombre de la especialidad")
+	//@Size(min=3, max=20, message="El nombre de la especialidad debe tener entre 3 y 20 caracteres")
 	private String nombre; 
+	
 	private String descripcion; 
 	private Boolean estado;
 	

@@ -23,14 +23,14 @@ public class MedicoApplication implements CommandLineRunner {
 	@Override 
 	public void run (String... args ) throws Exception{
 		
-		
+		/*
 		usuario.setEstado(true);
-		usuario.setCodigo(12);
-		usuario.setNombredeusuario("ingrid");
-		usuario.setPassword("1234");
+		usuario.setCodigo(9);
+		usuario.setNombredeusuario("paula");
+		usuario.setPassword("222");
 		usuario.setTipo("ADMIN");
 		ps.registrarPaciente(usuario);
-		
+		*/
 		
 	}
 	
